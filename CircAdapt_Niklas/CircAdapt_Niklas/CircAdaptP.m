@@ -26,8 +26,16 @@ while P.t(end)<P.General.tEnd-Dt;
     tol=1e-4; %tol= 1e-4 or 1e-5: trade off accuracy and calculation speed
     opt = odeset('RelTol',tol,'AbsTol',tol);
     
+    warning('Running!');
     [tDummy,SVarAppend]= ode113('SVarDot',...
-        TimePoints,P.SVar(end,:),opt); % solving of Differential Equations
+            TimePoints,P.SVar(end,:),opt); % solving of Differential Equations
+    [msgstr, msgid] = lastwarn;
+    length(msgid);
+    if length(msgid) > 0
+        if msgid == 'MATLAB:ode113:IntegrationTolNotMet'
+            break;
+        end
+    end
     SVar= [SVar(1:end-1,:);SVarAppend(1:end,:)]; %appends 1-beat SVar-vector
     % SVar(end,:) removed because of overlap with next beat
     P.SVar= SVarAppend;
