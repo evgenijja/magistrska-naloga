@@ -1,2 +1,2 @@
-# magistrska_koda
-Koda za magistrsko :)
+# Simulacije
+Koda potrebna za simulacije
