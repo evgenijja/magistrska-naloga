@@ -5,6 +5,7 @@ import os
 import json
 
 import time
+import multiprocessing
 
 from scipy.io import loadmat
 
@@ -97,11 +98,12 @@ def run_multiple_simulations(triples, DtSimulation, filename, filename_final):
     return results_dict
 
 
+
 if __name__=="__main__":
 
 
     eng = matlab.engine.start_matlab()
-    res = run_one_simulation(eng, 2.5, 2.5, 2.5, 3)
+    run_one_simulation(eng, 2.5, 2.5, 2.5, 3)
     eng.quit()
 
     # triples = [(0.9, 0.9, 0.9), (0.8, 0.8, 0.8), (0.7, 0.7, 0.7)]

@@ -108,16 +108,107 @@ Datum: 27. 4.
 Datum 28. 4. 2024
 """
 
+# resistance = np.arange(0.1, 2.5, 0.1)
+# compliance = np.arange(0.1, 2.5, 0.1)
+# C = 0.7
+# # DtSimulations = 8.5*3
+
+# triples = []
+
+# for R in resistance:
+#     for S in compliance:
+#         triples.append([C, R, S])
+
+# # initialize json file { "C = 0.1" : []}
+# with open(f"simulation_results/20240425/results_final_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# with open(f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# print("Starting simulations for C = 0.5")
+# print(datetime.datetime.now())
+# # 2024-04-28 10:03:35.175516
+# start_time = datetime.datetime.now()
+# run_multiple_simulations(triples, DtSimulations, f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", f"simulation_results/20240425/results_final_for_C_{C}.json")
+# print("Finished simulations for C = 0.5")
+# print(datetime.datetime.now())
+# end_time = datetime.datetime.now()
+
+"""
+Datum: 30. 4. 2024
+"""
+# resistance = np.arange(0.1, 2.5, 0.1)
+# compliance = np.arange(0.1, 2.5, 0.1)
+# C = 0.9
+# # DtSimulations = 8.5*3
+
+# triples = []
+
+# for R in resistance:
+#     for S in compliance:
+#         triples.append([C, R, S])
+
+# # initialize json file { "C = 0.1" : []}
+# with open(f"simulation_results/20240425/results_final_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# with open(f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# print(f"Starting simulations for C = {C}")
+# print(datetime.datetime.now())
+# # 2024-04-30 12:38:01.090698
+# start_time = datetime.datetime.now()
+# run_multiple_simulations(triples, DtSimulations, f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", f"simulation_results/20240425/results_final_for_C_{C}.json")
+# print(f"Finished simulations for C = {C}")
+# print(datetime.datetime.now())
+# end_time = datetime.datetime.now()
+
+
+"""
+Datum 1. 5. 2024
+
+"""
+# resistance = np.arange(0.1, 2.5, 0.1)
+# compliance = np.arange(0.1, 2.5, 0.1)
+# C = 1
+# DtSimulations = 8.5*3
+
+# triples = []
+
+# for R in resistance:
+#     for S in compliance:
+#         if (R, S) not in [(0.1, 0.1), (0.2, 0.2), (0.2, 0.1), (0.2, 0.1, 0.3, 0.1), (0.4, 0.1), (0.1, 0.2)]:
+#             triples.append([C, R, S])
+
+# # initialize json file { "C = 0.1" : []}
+# with open(f"simulation_results/20240425/results_final_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# with open(f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", 'w') as file:
+#     json.dump([], file, indent=4)
+
+# print(f"Starting simulations for C = {C}")
+# print(datetime.datetime.now())
+# # 2024-05-01 10:37:24.176685
+# start_time = datetime.datetime.now()
+# run_multiple_simulations(triples, DtSimulations, f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", f"simulation_results/20240425/results_final_for_C_{C}.json")
+# print(f"Finished simulations for C = {C}")
+# print(datetime.datetime.now())
+# end_time = datetime.datetime.now()
+
 resistance = np.arange(0.1, 2.5, 0.1)
 compliance = np.arange(0.1, 2.5, 0.1)
-C = 0.7
-# DtSimulations = 8.5*3
+C = 1.1
+DtSimulations = 8.5*3
 
 triples = []
 
 for R in resistance:
     for S in compliance:
-        triples.append([C, R, S])
+        if (R, S) not in [(0.1, 0.1), (0.2, 0.2), (0.2, 0.1),  (0.3, 0.1), (0.4, 0.1), (0.1, 0.2), (0.5, 0.1), (0.3, 0.2)]:
+            triples.append([C, R, S])
 
 # initialize json file { "C = 0.1" : []}
 with open(f"simulation_results/20240425/results_final_for_C_{C}.json", 'w') as file:
@@ -126,11 +217,11 @@ with open(f"simulation_results/20240425/results_final_for_C_{C}.json", 'w') as f
 with open(f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", 'w') as file:
     json.dump([], file, indent=4)
 
-print("Starting simulations for C = 0.5")
+print(f"Starting simulations for C = {C}")
 print(datetime.datetime.now())
-# 2024-04-28 10:03:35.175516
+# 2024-05-01 17:24:46.184413
 start_time = datetime.datetime.now()
 run_multiple_simulations(triples, DtSimulations, f"simulation_results/20240425/mid_simulation_results/results_for_C_{C}.json", f"simulation_results/20240425/results_final_for_C_{C}.json")
-print("Finished simulations for C = 0.5")
+print(f"Finished simulations for C = {C}")
 print(datetime.datetime.now())
 end_time = datetime.datetime.now()
