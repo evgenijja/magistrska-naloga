@@ -157,6 +157,40 @@ def extract_parts_for_feature_definitions(mode="translated"):
 
     return new_data
 
+def constructX_for_pca_in_R(translate=True, normalize=True, filename="feature_definition/pca/pca_data.csv"):
+    """
+    V R-ju naredimo PCA na točkah (ne na značilkah). Zanima nas ali lahko s pomočjo te analize opišemo kateri deli valov vsebujejo največ variabilnosti.
+    Zgeneriram csv datoteko kjer vsak stolpec predstavlja točko v času (427 stolpcev).
+    Pomembno je, da so valovi normalizirani (in trnaslirani)
+    """
+    data = get_data()
+
+    list_of_lists = []
+
+    for key in data:
+        part = data[key]['part']
+
+        if translate:
+            # translate
+            part = part[np.argmin(part):] + part[:np.argmin(part)]
+
+        if normalize:
+            # normalize
+            pp = np.max(part) - np.min(part)
+            dp = np.min(part)
+            normalization_factor = 1 / pp
+            part = [(part[i] - dp) * normalization_factor for i in range(len(part))]
+
+        list_of_lists.append(part)
+
+    df = pd.DataFrame(list_of_lists)
+    df.dropna(inplace=True)
+    df.to_csv(filename, index=False)
+
+    return df
+
+
+
 
 def sanity_check(data):
     """
@@ -180,7 +214,7 @@ def sanity_check(data):
     print("Key with maximum value:", key_with_max_value)
     print("Maximum value:", my_dict[key_with_max_value])
 
-data = get_data()
+# data = get_data()
 
 # sanity_check(data)
 
@@ -193,7 +227,11 @@ data = get_data()
 
     
 
-# if __name__=="__main__":
+if __name__=="__main__":
+
+    constructX_for_pca_in_R(translate=True, normalize=False, filename="feature_definition/pca/pca_data2.csv")
+
+
 
 #     data = get_data()
 
