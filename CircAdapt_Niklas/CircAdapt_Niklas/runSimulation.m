@@ -63,7 +63,7 @@ cav8 = P.Cavity.V(:,8);
 
 cav = [cav1, cav2, cav3, cav4, cav5, cav6, cav7, cav8];
 
-outputFileName = sprintf('CircAdapt_Niklas/CircAdapt_Niklas/p_structures/P_%d_%d_%d.mat', round(C, 2), round(R, 2), round(S, 2));
+outputFileName = sprintf('CircAdapt_Niklas\CircAdapt_Niklas/p_structures/P_%d_%d_%d.mat', round(C, 2), round(R, 2), round(S, 2));
 save(outputFileName, "P")
 
 end
