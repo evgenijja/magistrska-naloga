@@ -1,2 +1,1 @@
-# magistrska_koda
-Koda za magistrsko :)
+# Magistrska naloga
